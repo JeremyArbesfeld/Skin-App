@@ -1,0 +1,15 @@
+.content { 
+  padding-top: 40px; 
+  height: 100%; 
+  overflow:scroll;
+}
+.centered { 
+	text-align: center;
+
+} 
+.div {  
+	width: 150px; 
+	height: 150px;
+	overflow: scroll; 
+} 
+
