@@ -10,7 +10,7 @@
 <body>
   <div class="bar bar-header bar-positive">
   	<button id="home" class="button icon-left ion-home"> Home</button>
-    <h1 class="title">Skin App</h1>
+    <h1 class="title">InforMD</h1>
   </div>  
 
   <div style="width:600px; background-color:#FFFFFF;"> 
@@ -37,8 +37,12 @@
 </body>
 
 <template name="resultPage">
-	
-	{{yesCount}}
+	<div class= "resultFont centered">
+	{{yesMessage}} 
+	  
+	<a href="mailto:?subject=Urgency of Appointment&body={{body}}" class="button button-balanced">Email Your Doctor</a>
+
+  </div>  
 
 </template>
 

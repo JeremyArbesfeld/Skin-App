@@ -218,23 +218,30 @@ Template.question.helpers ({
 });  
 
 Template.resultPage.helpers({
-  yesCount: function () {
-    if (11 <= yesCount <= 14) {
-      return "You should be seen immediately!";
-    } else if (8 <= yesCount <= 10) { 
+  yesMessage: function () { 
+    console.log(yesCount);
+    if (11 <= yesCount) {
+      return "You should be seen immediately!"; 
+    } else if (8 <= yesCount) { 
       return "You should be seen within 1 day!"; 
-    } else if (6 <= yesCount <= 7) { 
+    } else if (6 <= yesCount) { 
       return "You should be seen within 2 days!"; 
-    } else if (3 <= yesCount <= 5) { 
+    } else if (3 <= yesCount) { 
       return "You should be seen within 5 days!"; 
-    } else if (1 <= yesCount <= 2) { 
+    } else if (1 <= yesCount) { 
       return "You should be seen within 1 week!"; 
     } else { 
       return "Call your dermatologist or primary care physician."; 
     }
-  }
-})  
+  }, 
 
-console.log(yesCount)
+  body: function () { 
+    return "I need help immeadiately!"; 
+  }
+})   
+
+
+
+
 
 

@@ -13,3 +13,8 @@
 	overflow: scroll; 
 } 
 
+.resultFont { 
+	font-size: 40px;
+	color: Bronze; 
+	line-height: 150%;
+}
