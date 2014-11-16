@@ -7,3 +7,7 @@ meteor-platform
 autopublish
 insecure
 reactive-var
+accounts-ui
+accounts-google
+mdg:camera
+

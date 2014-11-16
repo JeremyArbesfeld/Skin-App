@@ -1,5 +1,6 @@
 var questionType = new ReactiveVar("none");
 var resultPage = new ReactiveVar(false);
+var myPhoto = new ReactiveVar();
 
 var moleQuestions = [ 
   { prompt: "Is it a new growth or mole?", 
@@ -164,6 +165,10 @@ Template.body.helpers ({
 
   isResultPage: function () {
     return resultPage.get();
+  },
+
+  currentPhoto: function () {
+    return myPhoto.get();
   }
 });  
 
@@ -193,6 +198,19 @@ Template.body.events( {
   'click #home': function () {
     questionType.set("none");
     resultPage.set(false);
+  },
+
+  'click #picture': function () {
+    MeteorCamera.getPicture({ width: 400, height: 300, quality: 50}, 
+      function (err, data) {
+        if (err) {
+          console.log(err);
+          return;
+        }
+
+        // do stuff with data
+        myPhoto.set(data);
+    });
   }
 }); 
 
@@ -205,7 +223,7 @@ Template.question.events ({
   'click #no':  function () { 
     console.log("bye");
     this.state.set("no");  
-  }
+  },
 });
 
 Template.question.helpers ({ 
@@ -236,7 +254,14 @@ Template.resultPage.helpers({
   }, 
 
   body: function () { 
-    return "I need help immeadiately!"; 
+    var userName = "";
+
+    var firstLine = "";
+    if (Meteor.user()) {
+      userName = Meteor.user().profile.name;
+      firstLine = "Hi, this is " + userName + ".\n";
+    }
+    return firstLine + " I need help immeadiately!"; 
   }
 })   
 

@@ -10,7 +10,8 @@
 <body>
   <div class="bar bar-header bar-positive">
   	<button id="home" class="button icon-left ion-home"> Home</button>
-    <h1 class="title">InforMD</h1>
+    <h1 class="title">InforMD</h1> 
+    <div class="col col-offset-50">{{> loginButtons}}</div>
   </div>  
 
   <div style="width:600px; background-color:#FFFFFF;"> 
@@ -26,6 +27,12 @@
 		        {{> question}} 
 		      {{/each}}
 			  </ul>
+			  <div class="centered">
+				  <button class="centered button button-balanced" id="picture">
+				  	Take Picture
+				  </button> <br>
+				  <img src="{{ currentPhoto }}"/>
+				</div><br>
 			  <div class="centered"> 
 			    <button class="button button-positive" id= "submit">Submit</button>
 			  </div>     
