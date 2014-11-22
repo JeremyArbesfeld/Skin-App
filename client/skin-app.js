@@ -238,15 +238,15 @@ Template.question.helpers ({
 Template.resultPage.helpers({
   yesMessage: function () { 
     console.log(yesCount);
-    if (11 <= yesCount) {
+    if (90 <= yesCount) {
       return "You should be seen immediately!"; 
-    } else if (8 <= yesCount) { 
+    } else if (65 <= yesCount) { 
       return "You should be seen within 1 day!"; 
-    } else if (6 <= yesCount) { 
+    } else if (40<= yesCount) { 
       return "You should be seen within 2 days!"; 
-    } else if (3 <= yesCount) { 
+    } else if (20<= yesCount) { 
       return "You should be seen within 5 days!"; 
-    } else if (1 <= yesCount) { 
+    } else if (10<= yesCount) { 
       return "You should be seen within 1 week!"; 
     } else { 
       return "Call your dermatologist or primary care physician."; 
@@ -261,7 +261,20 @@ Template.resultPage.helpers({
       userName = Meteor.user().profile.name;
       firstLine = "Hi, this is " + userName + ".\n";
     }
-    return firstLine + " I need help immeadiately!"; 
+    if (90 <= yesCount) { 
+      return firstLine + "I need to be seen immeadiately!"; 
+    } 
+    if (65 <== yesCount) {
+      return firstLine + "I need to be seen within 1 day!"; 
+    } 
+    if (40 <= yesCount) { 
+      return firstLine + "I need to be seen within 2 days!"; 
+    } 
+    if (20 <= yesCount) { 
+      return firstLine + "I need to be seen within 5 days!"; 
+    } 
+    else { 
+      return firstLine + "I have dermatologic symptoms and am unsure of their urgency."; 
   }
 })   
 
