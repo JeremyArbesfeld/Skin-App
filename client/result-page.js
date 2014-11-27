@@ -16,28 +16,44 @@ Template.resultPage.helpers({
   }, 
 
   body: function () { 
-    var userName = "";
-
-    var firstLine = "";
+    var emailText = "";
     if (Meteor.user()) {
-      userName = Meteor.user().profile.name;
-      firstLine = "Hi, this is " + userName + "" + ".\n";
+      var userName = Meteor.user().profile.name;
+      emailText += "Hi, this is " + userName + "" + ".%0A"; 
+
     }
+
     if (90 <= this.yesCount) { 
-      return firstLine + "I need to be seen immeadiately!"; 
+      emailText += "I need to be seen immeadiately!"; 
      
     } else if (65 <=this.yesCount) {
-      return firstLine + "I need to be seen within 1 day!"; 
+      emailText += "I need to be seen within 1 day!"; 
      
     } else if (40 <= this.yesCount) { 
-      return firstLine + "I need to be seen within 2 days!"; 
+      emailText += "I need to be seen within 2 days!"; 
      
     } else if (20 <= this.yesCount) { 
-      return firstLine + "I need to be seen within 5 days!"; 
+      emailText += "I need to be seen within 5 days!"; 
      
     } else { 
-      return firstLine + "I have dermatologic symptoms and am unsure of their urgency."; 
-   }
+      emailText += "I have dermatologic symptoms and am unsure of their urgency."; 
+   } 
+
+   emailText += "%0A%0AHere are the results of my test:%0A";
+
+    var questions = this.questions;
+
+     _.each(questions, function (question) { 
+      var myState = question.state; 
+      debugger;
+      if (question.state === "none") { 
+        myState = "no"; 
+      }
+
+      emailText += question.prompt + " " + myState + ".%0A"; 
+    })
+
+   return emailText;
   }
 })   
 
