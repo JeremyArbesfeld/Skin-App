@@ -7,19 +7,7 @@
   </style>
 </head>
 
-<template name="header">
-  <div class="bar bar-header bar-positive">
-  	<a href= "/"> <button id="home" class="button icon-left ion-home"> Home</button> </a>
-    <h1 class="title">InforMD</h1> 
-     <button class="button button-clear" id="google">
-      {{#if currentUser}}
-      	{{currentUser.profile.name}} 
-      {{else}} 
-      	Sign In
-      {{/if}} 
-     </button>
-  </div>  
-</template>
+
 
 <template name="ApplicationLayout">
   {{> header}}
@@ -28,51 +16,10 @@
   </div>   
 </template>
 
-<template name="home">
-  <div class="centered">
-    <h2>Is it a skin rash or mole?</h2> 
-		<a class="button" id="rash">Rash</a> 
-		<a class="button" id="mole">Mole</a>
-	</div> 
-</template>
 
-<template name="questionPage">
-  <ul class="list"> 
-    {{#each questions}} 
-      {{> question}} 
-    {{/each}}
-  </ul>
-  <div class="centered">
-	  <button class="centered button button-balanced" id="picture">
-	  	Take Picture
-	  </button> <br>
-	  <img src="{{ currentPhoto }}"/>
-	</div><br>
-  <div class="centered"> 
-    <button class="button button-positive" id= "submit">Submit</button>
-  </div> 
-</template>
 
-<template name="resultPage">
-	<div class= "resultFont centered">
-	{{yesMessage}} 
-	  
-	<a href="mailto:?subject=Urgency of Appointment&body={{body}}" class="button button-balanced">Email Your Doctor</a>
 
-  </div>  
-</template> 
 
-<template name="profilePage"> 
-	profile 
-</template>
 
-<template name="question"> 
-	<li class="item"> 
-    <p>{{prompt}}</p> 
-    <div class="button-bar"> 
-    	<a class="button {{#if no}} button-assertive {{/if}}" id="no">No</a> 
-    	<a class="button {{#if yes}} button-balanced {{/if}}" id="yes">Yes</a> 
-    </div>
-  </li> 
-</template> 
+
 

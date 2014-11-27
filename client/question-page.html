@@ -1,0 +1,26 @@
+<template name="questionPage">
+  <ul class="list"> 
+    {{#each questions}} 
+      {{> question}} 
+    {{/each}}
+  </ul>
+  <div class="centered">
+	  <button class="button button-balanced" id="picture">
+	  	Take Picture
+	  </button> <br>
+	  <img src="{{ currentPhoto }}"/>
+	</div><br>
+  <div class="centered"> 
+    <button class="button button-positive" id= "submit">Submit</button>
+  </div> 
+</template>
+
+<template name="question"> 
+  <li class="item"> 
+    <p>{{prompt}}</p> 
+    <div class="button-bar"> 
+      <a class="button {{#if no}} button-assertive {{/if}}" id="no">No</a> 
+      <a class="button {{#if yes}} button-balanced {{/if}}" id="yes">Yes</a> 
+    </div>
+  </li> 
+</template> 
