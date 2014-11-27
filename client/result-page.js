@@ -45,7 +45,6 @@ Template.resultPage.helpers({
 
      _.each(questions, function (question) { 
       var myState = question.state; 
-      debugger;
       if (question.state === "none") { 
         myState = "no"; 
       }
