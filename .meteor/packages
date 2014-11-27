@@ -10,4 +10,5 @@ reactive-var
 accounts-ui
 accounts-google
 mdg:camera
+iron:router
 

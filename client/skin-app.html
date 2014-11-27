@@ -7,41 +7,51 @@
   </style>
 </head>
 
-<body>
+<template name="header">
   <div class="bar bar-header bar-positive">
-  	<button id="home" class="button icon-left ion-home"> Home</button>
+  	<a href= "/"> <button id="home" class="button icon-left ion-home"> Home</button> </a>
     <h1 class="title">InforMD</h1> 
-    <div class="col col-offset-50">{{> loginButtons}}</div>
+     <button class="button button-clear" id="google">
+      {{#if currentUser}}
+      	{{currentUser.profile.name}} 
+      {{else}} 
+      	Sign In
+      {{/if}} 
+     </button>
   </div>  
+</template>
 
-  <div style="width:600px; background-color:#FFFFFF;"> 
-  </div>
-
+<template name="ApplicationLayout">
+  {{> header}}
   <div class="content">  
-    {{#if isResultPage}}   
-      {{> resultPage}}
-    {{else}}
-		  {{#if hasQuestions}} 
-			  <ul class="list"> 
-		      {{#each questions}} 
-		        {{> question}} 
-		      {{/each}}
-			  </ul>
-			  <div class="centered">
-				  <button class="centered button button-balanced" id="picture">
-				  	Take Picture
-				  </button> <br>
-				  <img src="{{ currentPhoto }}"/>
-				</div><br>
-			  <div class="centered"> 
-			    <button class="button button-positive" id= "submit">Submit</button>
-			  </div>     
-		  {{else}}
-		  	{{> firstQuestion}}
-		  {{/if}}
-		{{/if}}
+  	{{> yield}}
   </div>   
-</body>
+</template>
+
+<template name="home">
+  <div class="centered">
+    <h2>Is it a skin rash or mole?</h2> 
+		<a class="button" id="rash">Rash</a> 
+		<a class="button" id="mole">Mole</a>
+	</div> 
+</template>
+
+<template name="questionPage">
+  <ul class="list"> 
+    {{#each questions}} 
+      {{> question}} 
+    {{/each}}
+  </ul>
+  <div class="centered">
+	  <button class="centered button button-balanced" id="picture">
+	  	Take Picture
+	  </button> <br>
+	  <img src="{{ currentPhoto }}"/>
+	</div><br>
+  <div class="centered"> 
+    <button class="button button-positive" id= "submit">Submit</button>
+  </div> 
+</template>
 
 <template name="resultPage">
 	<div class= "resultFont centered">
@@ -50,15 +60,10 @@
 	<a href="mailto:?subject=Urgency of Appointment&body={{body}}" class="button button-balanced">Email Your Doctor</a>
 
   </div>  
+</template> 
 
-</template>
-
-<template name="firstQuestion">
-  <div class="centered">
-    <h2>Is it a skin rash or mole?</h2> 
-		<a class="button" id="rash">Rash</a> 
-		<a class="button" id="mole">Mole</a>
-	</div> 
+<template name="profilePage"> 
+	profile 
 </template>
 
 <template name="question"> 
