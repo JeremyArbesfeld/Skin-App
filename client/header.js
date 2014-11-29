@@ -3,7 +3,8 @@ Template.header.events({
     if (Meteor.user()) { 
       Router.go("/profilePage"); 
     } else { 
-      Meteor.loginWithGoogle(); 
+      Meteor.loginWithGoogle();
+      Router.go("/");
     }
   }
 }); 

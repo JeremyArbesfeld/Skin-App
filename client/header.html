@@ -1,13 +1,15 @@
 <template name="header">
   <div class="bar bar-header bar-positive">
-  	<a href= "/"> <button id="home" class="button icon-left ion-home"> Home</button> </a>
-    <h1 class="title">InforMD</h1> 
-     <button class="button button-clear" id="google">
-      {{#if currentUser}}
-      	{{currentUser.profile.name}} 
-      {{else}} 
-      	Sign In
-      {{/if}} 
+  	<a href= "/"> <button id="home" class="button icon-left ion-home"> </button> </a>
+    <h1 class="title">SkinDecision</h1> 
+     <button class="button" id="google">
+      <span style="font-size:16px">
+        {{#if currentUser}}
+        	{{currentUser.services.google.given_name}} 
+        {{else}} 
+        	Sign In
+        {{/if}} 
+      </span>
      </button>
   </div>  
 </template>
