@@ -65,7 +65,11 @@ Template.questionPage.events( {
       quality: 50
     }, function (error, data) {
       if (! error) {
-        this.picture.set(data);
+        if (Meteor.isCordova) {
+          self.picture.set(data);
+        } else {
+          this.picture.set(data);
+        }
       }
     }, self);
   }
