@@ -14,3 +14,4 @@ iron:router
 camera
 service-configuration
 meteor-alert
+ios-email

@@ -15,32 +15,36 @@ Template.resultPage.helpers({
     }
   }, 
 
-  body: function () { 
+})
+
+Template.resultPage.events({
+  'click #email': function () { 
     var emailText = "";
     if (Meteor.user()) {
       var userName = Meteor.user().profile.name;
-      emailText += "Hi, this is " + userName + "" + ".%0A"; 
+      emailText += "<p>Hi, this is " + userName + "" + ".</p>"; 
 
     }
 
     if (90 <= this.yesCount) { 
-      emailText += "I need to be seen immeadiately!"; 
+      emailText += "<p>I need to be seen immeadiately!</p>"; 
      
     } else if (65 <=this.yesCount) {
-      emailText += "I need to be seen within 1 day!"; 
+      emailText += "<p>I need to be seen within 1 day!</p>"; 
      
     } else if (40 <= this.yesCount) { 
-      emailText += "I need to be seen within 2 days!"; 
+      emailText += "<p>I need to be seen within 2 days!</p>"; 
      
     } else if (20 <= this.yesCount) { 
-      emailText += "I need to be seen within 5 days!"; 
+      emailText += "<p>I need to be seen within 5 days!</p>"; 
      
     } else { 
-      emailText += "I have dermatologic symptoms and am unsure of their urgency."; 
+      emailText += "<p>I have dermatologic symptoms and am unsure of their urgency.</p>"; 
    } 
 
-   emailText += "%0A%0AHere are the results of my test:%0A";
+   emailText += "<p>Here are the results of my test:</p>";
 
+   emailText += "<ul>"
     var questions = this.questions;
 
      _.each(questions, function (question) { 
@@ -49,10 +53,35 @@ Template.resultPage.helpers({
         myState = "no"; 
       }
 
-      emailText += question.prompt + " " + myState + ".%0A"; 
+      emailText += "<li>" + question.prompt + " " + myState + ".</li>"; 
     })
 
-   return emailText;
+    emailText += "</ul>"
+
+    var picture = Session.get("PICTURE");
+
+    if (picture) {
+      emailText += "<img src=\"" + picture + "\"/>";
+    }
+
+    IosEmail.show({
+      to: '',
+      subject: 'Urgency of Appointment',
+      body: emailText,
+      isHtml: true,
+      attachments: [{
+        mimeType: 'text/png',
+        encoding: 'Base64',
+        data: picture,
+        name: 'image.png'
+      }],
+      onSuccess: function (winParam) { 
+        console.log('EmailComposer onSuccess - return code ' + winParam.toString());
+      },
+      onError: function (error) {
+        console.log('EmailComposer onError - ' + error.toString());
+      }
+    })
   }
 })   
 
