@@ -1,10 +1,26 @@
 <template name="profilePage"> 
-	profile 
+	<ul class="list">
+		{{#each results}}
+			{{> result}}
+		{{/each}}
+	</ul>
+
 
   <div class="centered">
 	  <button class="button button-assertive" id="signout">
 	  	Sign Out
+	  </button><br><br>
+
+	  <button class="button button-assertive" id="delete">
+	  	Clear Results
 	  </button>
 	</div> 
 
+</template>
+
+<template name="result">
+	<li class="item item-avatar">
+		<img src="{{picture}}">
+		Date: {{ formattedDate }} -  Severity: {{ score }}
+	</li>
 </template>

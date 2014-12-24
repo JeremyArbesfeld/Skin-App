@@ -9,6 +9,8 @@ insecure
 reactive-var
 accounts-ui
 accounts-google
-mdg:camera
 iron:router
 
+camera
+service-configuration
+meteor-alert
