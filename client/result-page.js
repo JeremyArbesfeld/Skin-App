@@ -1,15 +1,27 @@
 Template.resultPage.helpers({
   yesMessage: function () {
-    if (90 <= this.yesCount) {
+    if (170 <= this.yesCount) {
       return "You should be seen immediately!"; 
-    } else if (65 <= this.yesCount) { 
+    } else if (165 <= this.yesCount) { 
       return "You should be seen within 1 day!"; 
-    } else if (40<= this.yesCount) { 
+    } else if (145<= this.yesCount) { 
       return "You should be seen within 2 days!"; 
-    } else if (20<= this.yesCount) { 
-      return "You should be seen within 5 days!"; 
-    } else if (10<= this.yesCount) { 
-      return "You should be seen within 1 week!"; 
+    } else if (135 <= this.yesCount) { 
+      return "You should be seen within 3 days!"; 
+    } else if (125 <= this.yesCount) { 
+      return "You should be seen within 4 days!"; 
+    } else if (105<= this.yesCount) { 
+      return "You should be seen within 5 days!";
+    } else if (100 <= this.yesCount) { 
+      return "You should be seen within 6 days!";  
+    } else if (85 <= this.yesCount) { 
+      return "You should be seen within 7 days!"; 
+    } else if (60 <= this.yesCount) { 
+      return "You should be seen within 10 days!"; 
+    } else if (30 <= this.yesCount) { 
+      return "You should be seen within 12 days!"; 
+    } else if (10 <= this.yesCount) { 
+      return "You should be seen within 14 days!"; 
     } else { 
       return "Call your dermatologist or primary care physician."; 
     }

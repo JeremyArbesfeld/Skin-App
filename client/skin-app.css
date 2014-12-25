@@ -9,7 +9,6 @@
 	padding-top: 20px;
 }  
 
-
 .div {  
 	width: 150px; 
 	height: 150px;
@@ -23,5 +22,14 @@
 }
 
 #view-image {
-	
-}
+	max-height: 350px;
+  max-width: 400px;
+	width: 300px;
+	height: 300px;
+} 
+
+#email { 
+	text-align: center; 
+	margin-top: 50px;
+} 
+
