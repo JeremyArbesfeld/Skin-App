@@ -31,5 +31,11 @@
 #email { 
 	text-align: center; 
 	margin-top: 50px;
+}  
+
+#disclaimer { 
+	font-size: 12px
+	text-align: right; 
 } 
+
 
