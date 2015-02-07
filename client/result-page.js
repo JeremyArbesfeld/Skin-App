@@ -38,17 +38,38 @@ Template.resultPage.events({
 
     }
 
-    if (90 <= this.yesCount) { 
-      emailText += "<p>I need to be seen immeadiately!</p>"; 
+    if (170 <= this.yesCount) { 
+      emailText += "<p>I need to be seen immeadiately.</p>"; 
      
-    } else if (65 <=this.yesCount) {
-      emailText += "<p>I need to be seen within 1 day!</p>"; 
+    } else if (165 <=this.yesCount) {
+      emailText += "<p>I need to be seen within 1 day.</p>"; 
      
-    } else if (40 <= this.yesCount) { 
-      emailText += "<p>I need to be seen within 2 days!</p>"; 
+    } else if (145 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 2 days.</p>"; 
      
-    } else if (20 <= this.yesCount) { 
-      emailText += "<p>I need to be seen within 5 days!</p>"; 
+    } else if (135 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 3 days.</p>";
+
+    } else if (125 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 4 days.</p>"; 
+
+    } else if (105 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 5 days.</p>"; 
+
+    } else if (100 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 6 days.</p>"; 
+
+    } else if (85 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 7 days.</p>"; 
+
+    } else if (60 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 10 days.</p>"; 
+
+    } else if (30 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 12 days.</p>"; 
+
+    } else if (10 <= this.yesCount) { 
+      emailText += "<p>I need to be seen within 14 days.</p>"; 
      
     } else { 
       emailText += "<p>I have dermatologic symptoms and am unsure of their urgency.</p>"; 

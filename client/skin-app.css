@@ -30,12 +30,12 @@
 
 #email { 
 	text-align: center; 
-	margin-top: 50px;
+	margin-top: 50px; 
+	overflow-y: scroll;
 }  
 
-#disclaimer { 
-	font-size: 12px
-	text-align: right; 
-} 
+
+
+
 
 
